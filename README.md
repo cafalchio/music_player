@@ -26,5 +26,5 @@ The Command Line Music Player API is a powerful and flexible music player that c
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/music-player-api.git
-   cd music-player-api
+   git clone https://github.com/cafalchio/music_player.git
+   cd music_player
