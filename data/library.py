@@ -12,8 +12,10 @@ def get_local_library():
             files = json.load(f)
         return files
     else:
+        print("Looking for files")
         files = glob(os.path.join(SOURCE_FOLDER, '**', '*.mp3'), recursive=True)
         with open(MUSIC_FILE, 'w', encoding='utf-8') as f:
+            print("Writing files")
             json.dump(files, f, ensure_ascii=False, indent=4)
     return files
 
