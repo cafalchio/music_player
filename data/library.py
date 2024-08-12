@@ -7,6 +7,7 @@ MUSIC_FILE = 'musics.json'
 
 def get_local_library():
     if os.path.isfile(MUSIC_FILE):
+        print("Found file")
         with open(MUSIC_FILE, "r") as f:
             files = json.load(f)
         return files
