@@ -3,7 +3,7 @@ from glob import glob
 import os
 
 SOURCE_FOLDER = os.path.expanduser("~/portainer/downloads/lidarr")  # Expand the tilde to full path
-MUSIC_FILE = 'musics.json'
+MUSIC_FILE = './musics.json'
 
 def get_local_library():
     if os.path.isfile(MUSIC_FILE):
