@@ -7,7 +7,6 @@ MUSIC_FILE = './musics.json'
 
 def get_local_library():
     if os.path.isfile(MUSIC_FILE):
-        print("Found file")
         try:
             with open(MUSIC_FILE, "r", encoding='utf-8') as f:
                 files = json.load(f)
@@ -29,9 +28,4 @@ def get_local_library():
             json.dump(files, f, ensure_ascii=False, indent=4)
     else:
         print("No MP3 files found.")
-
     return files
-
-# Example usage
-files = get_local_library()
-print("Files found:", files)
