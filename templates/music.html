@@ -1,12 +1,18 @@
-{% extends 'base.html' %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music List</title>
+</head>
+<body>
     <h1>Song List</h1>
     <ul>
-        {% for song in files %}
+        {% for file in files %}
             <li>
-                <a href="/api/play?file={{ song }}">{{ song }}</a>
+                <a href="/api/play?file={{ file }}">{{ file }}</a>
             </li>
         {% endfor %}
     </ul>
-{% endblock %}
+</body>
+</html>
