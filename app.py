@@ -1,5 +1,6 @@
 import os
 import subprocess
+import urllib
 
 from flask import Flask, render_template, jsonify
 from data.library import get_local_library
@@ -17,7 +18,7 @@ def library():
 
 @app.route("/api/play/<path:song_path>")
 def play(song_path):
-    song_path = os.path.join("/home/cafalchio/portainer/downloads/lidarr", song_path)
+    song_path = urllib.parse.unquote(song_path)
     if os.path.isfile(song_path):
         try:
             # Using subprocess to play the song

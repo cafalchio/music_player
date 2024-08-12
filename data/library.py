@@ -1,4 +1,5 @@
 import json
+import urllib
 from glob import glob
 import os
 
@@ -20,6 +21,7 @@ def get_local_library():
 
     print("Looking for files")
     files = glob(os.path.join(SOURCE_FOLDER, '**', '*.mp3'), recursive=True)
+    files = [urllib.parse.quote(file) for file in files]
 
     # Check if any files were found before writing to the JSON file
     if files:
