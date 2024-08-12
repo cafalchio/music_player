@@ -10,6 +10,7 @@ def get_local_library():
         print("Found file")
         with open(MUSIC_FILE, "r") as f:
             files = json.load(f)
+            print(files)
         return files
     else:
         print("Looking for files")
