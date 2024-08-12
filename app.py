@@ -18,6 +18,7 @@ def library():
 @app.route("/api/play/<song_path>")
 def play(song_path):
     print(f"The song path is {song_path}")
+
     # song_path = "/home/cafalchio/portainer/downloads/lidarr/Nirvana - Nevermind Madrid 1992 (live) (2022) Mp3 320kbps [PMEDIA] ⭐️/14. Something In The Way (live)-converted.mp3"
 
     # Check if the file exists
