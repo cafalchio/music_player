@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Song List</h1>
+    <ul>
+        {% for song in song_files %}
+            <li>
+                <a href="/api/play?file={{ song }}">{{ song }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

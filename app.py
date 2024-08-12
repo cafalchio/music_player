@@ -7,11 +7,14 @@ app = Flask(__name__, template_folder='templates')
 def index():
     return render_template("index.html")
 
-@app.route("/library")
+@app.route("/api/library")
 def library():
     files = get_local_library()
-    return jsonify(files)
+    return render_template("music.html", jsonify(files))
 
+@app.route("/api/play/<song>")
+def play(song):
+    print(f"Playing {song}")
 
 
 if __name__ == '__main__':
