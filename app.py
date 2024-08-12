@@ -14,11 +14,12 @@ def library():
     files = get_local_library()
     return render_template("music.html", files=files)
 
-@app.route("/api/play/<song>")
-def play(song):
+@app.route("/api/play")
+def play():
     song = "/api/play?file=/home/cafalchio/portainer/downloads/lidarr/Nirvana - Nevermind Madrid 1992 (live) (2022) Mp3 320kbps [PMEDIA] ⭐️/14. Something In The Way (live)-converted.mp3"
     os.system(f"mpg123 -a hw:CARD=rockchipes8388,DEV=0 {song}")
     print(f"Playing {song}")
+
 
 
 if __name__ == '__main__':
