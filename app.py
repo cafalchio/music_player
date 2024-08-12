@@ -17,11 +17,7 @@ def library():
 
 @app.route("/api/play/<path:song_path>")
 def play(song_path):
-    print(f"The song path is {song_path}")
-
-    # song_path = "/home/cafalchio/portainer/downloads/lidarr/Nirvana - Nevermind Madrid 1992 (live) (2022) Mp3 320kbps [PMEDIA] ⭐️/14. Something In The Way (live)-converted.mp3"
-
-    # Check if the file exists
+    song_path = os.path.join("/home/cafalchio/portainer/downloads/lidarr", song_path)
     if os.path.isfile(song_path):
         try:
             # Using subprocess to play the song
