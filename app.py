@@ -10,7 +10,7 @@ def index():
 @app.route("/api/library")
 def library():
     files = get_local_library()
-    return render_template("music.html", files=jsonify(files))
+    return render_template("music.html", files=files)
 
 @app.route("/api/play/<song>")
 def play(song):
