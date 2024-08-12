@@ -15,7 +15,7 @@ def library():
     files = get_local_library()
     return render_template("music.html", files=files)
 
-@app.route("/api/play/<song_path>")
+@app.route("/api/play/<path:song_path>")
 def play(song_path):
     print(f"The song path is {song_path}")
 
