@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, jsonify
 from data.library import get_local_library
 
@@ -14,6 +16,7 @@ def library():
 
 @app.route("/api/play/<song>")
 def play(song):
+    os.system(f"mpg123 -a hw:CARD=rockchipes8388,DEV=0 {song}")
     print(f"Playing {song}")
 
 
