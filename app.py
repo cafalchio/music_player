@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 from flask import Flask, render_template, jsonify
 from data.library import get_local_library
@@ -16,10 +17,20 @@ def library():
 
 @app.route("/api/play")
 def play():
-    song = "/api/play?file=/home/cafalchio/portainer/downloads/lidarr/Nirvana - Nevermind Madrid 1992 (live) (2022) Mp3 320kbps [PMEDIA] ⭐️/14. Something In The Way (live)-converted.mp3"
-    os.system(f"mpg123 -a hw:CARD=rockchipes8388,DEV=0 {song}")
-    print(f"Playing {song}")
+    song_path = "/home/cafalchio/portainer/downloads/lidarr/Nirvana - Nevermind Madrid 1992 (live) (2022) Mp3 320kbps [PMEDIA] ⭐️/14. Something In The Way (live)-converted.mp3"
 
+    # Check if the file exists
+    if os.path.isfile(song_path):
+        try:
+            # Using subprocess to play the song
+            command = ["mpg123", "-a", "hw:CARD=rockchipes8388,DEV=0", song_path]
+            subprocess.Popen(command)
+            print(f"Playing {song_path}")
+            return jsonify({"message": f"Playing {song_path}"}), 200
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+    else:
+        return jsonify({"error": "Song not found."}), 404
 
 
 if __name__ == '__main__':
