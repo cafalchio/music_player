@@ -1,6 +1,4 @@
 from flask import Flask, render_template, jsonify
-from data import library
-from api.api_calls import get_library_data, local_play
 from data.library import get_local_library
 
 app = Flask(__name__, template_folder='templates')

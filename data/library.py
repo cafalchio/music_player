@@ -2,7 +2,7 @@ import json
 from glob import glob
 import os
 
-SOURCE_FOLDER = os.path.expanduser("~/portainer/downloads/lidarr/**/")  # Expand the tilde to full path
+SOURCE_FOLDER = os.path.expanduser("~/portainer/downloads/lidarr")  # Expand the tilde to full path
 MUSIC_FILE = 'musics.json'
 
 def get_local_library():
@@ -12,8 +12,7 @@ def get_local_library():
             files = json.load(f)
         return files
     else:
-        # Use **/*.mp3 to look for .mp3 files in all subfolders recursively
-        files = glob(os.path.join(SOURCE_FOLDER, '*.mp3'), recursive=True)
+        files = glob(os.path.join(SOURCE_FOLDER, '**', '*.mp3'), recursive=True)
         with open(MUSIC_FILE, 'w', encoding='utf-8') as f:
             json.dump(files, f, ensure_ascii=False, indent=4)
     return files
