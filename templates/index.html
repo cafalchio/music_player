@@ -1,109 +1,27 @@
 {% extends 'base.html' %}
 
-{% block header %}
-<!--  <h1>{% block title %}Register{% endblock %}</h1>-->
-{% endblock %}
-
 {% block content %}
-  <div>
-      <h2>Welcome to Music Player</h2>
-      <h4>This document describes the features and API calls available in the Music Player application.</h4>
+<div class="doc">
+    <h2>Welcome to Music Player</h2>
 
-      <p>Our Music Player application provides a seamless experience for managing and enjoying your music library. Below is a comprehensive guide to the available functionalities.</p>
+    <h4>The music player creates a web server that looks for audio files in the host computer and creates an API to play
+        the songs remotely.
+        It is intent to be used in a local network.
+    </h4>
 
-      <hr>
+    <hr>
 
-      <h3>1. Show Library</h3>
-      <p>The <strong>Show Library</strong> API call retrieves all music files available in your pre-set music folder. The library includes all recognized audio formats, organized in a user-friendly manner.</p>
+    <h3>TODO:</h3>
 
-      <pre><code>GET /api/library</code></pre>
+    <h3>1. Show Library</h3>
+    <p>Look for mp3, wav, ogg files in the host pc and return a list of songs that can be played</p>
 
-      <p><strong>Response:</strong></p>
-      <ul>
-        <li><code>200 OK</code> - A JSON array of music files, including metadata like title, artist, album, and duration.</li>
-        <li><code>404 Not Found</code> - If the music folder is empty or the path is incorrect.</li>
-      </ul>
+    <h3>2. Create Playlist</h3>
+    <p>Let the user add songs to playlist and save the playlist</p>
 
-      <h3>2. Choose Playlist</h3>
-      <p>The <strong>Choose Playlist</strong> API call allows users to select an existing playlist to manage or play.</p>
+    <h3>2. Control Player</h3>
+    <p>The user will control the player (play, pause, stop, next and back)</p>
 
-      <pre><code>POST /api/playlist/select</code></pre>
+</div>
 
-      <p><strong>Parameters:</strong></p>
-      <ul>
-        <li><code>playlist_name</code> (string) - The name of the playlist you want to select.</li>
-      </ul>
-
-      <p><strong>Response:</strong></p>
-      <ul>
-        <li><code>200 OK</code> - The selected playlist details.</li>
-        <li><code>404 Not Found</code> - If the playlist does not exist.</li>
-      </ul>
-
-      <h3>3. Play Music</h3>
-      <p>The <strong>Play</strong> API call plays a specific song from your library or playlist.</p>
-
-      <pre><code>POST /api/play</code></pre>
-
-      <p><strong>Parameters:</strong></p>
-      <ul>
-        <li><code>song_id</code> (string) - The unique identifier of the song you want to play.</li>
-      </ul>
-
-      <p><strong>Response:</strong></p>
-      <ul>
-        <li><code>200 OK</code> - The music starts playing.</li>
-        <li><code>404 Not Found</code> - If the song does not exist in the library or playlist.</li>
-      </ul>
-
-      <h3>4. Stop Music</h3>
-      <p>The <strong>Stop</strong> API call stops the currently playing music.</p>
-
-      <pre><code>POST /api/stop</code></pre>
-
-      <p><strong>Response:</strong></p>
-      <ul>
-        <li><code>200 OK</code> - The music stops playing.</li>
-        <li><code>400 Bad Request</code> - If no music is currently playing.</li>
-      </ul>
-
-      <h3>5. Add to Playlist</h3>
-      <p>The <strong>Add to Playlist</strong> API call adds a specific song to the chosen playlist.</p>
-
-      <pre><code>POST /api/playlist/add</code></pre>
-
-      <p><strong>Parameters:</strong></p>
-      <ul>
-        <li><code>playlist_name</code> (string) - The name of the playlist to add the song to.</li>
-        <li><code>song_id</code> (string) - The unique identifier of the song to be added.</li>
-      </ul>
-
-      <p><strong>Response:</strong></p>
-      <ul>
-        <li><code>200 OK</code> - The song is added to the playlist.</li>
-        <li><code>404 Not Found</code> - If the song or playlist does not exist.</li>
-      </ul>
-
-      <h3>6. Remove from Playlist</h3>
-      <p>The <strong>Remove from Playlist</strong> API call removes a specific song from the chosen playlist.</p>
-
-      <pre><code>DELETE /api/playlist/remove</code></pre>
-
-      <p><strong>Parameters:</strong></p>
-      <ul>
-        <li><code>playlist_name</code> (string) - The name of the playlist to remove the song from.</li>
-        <li><code>song_id</code> (string) - The unique identifier of the song to be removed.</li>
-      </ul>
-
-      <p><strong>Response:</strong></p>
-      <ul>
-        <li><code>200 OK</code> - The song is removed from the playlist.</li>
-        <li><code>404 Not Found</code> - If the song or playlist does not exist.</li>
-      </ul>
-
-      <hr>
-
-      <h4>Happy Listening!</h4>
-      <p>We hope you enjoy using the Music Player. For any issues, feel free to reach out to our support team.</p>
-  </div>
 {% endblock %}
