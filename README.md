@@ -1,7 +1,7 @@
 # Command Line Music Player API
 
 ## Overview
-
+ 
 The Command Line Music Player API is a powerful and flexible music player that can be controlled remotely via API calls. It can also integrate seamlessly with local speech-to-text systems, allowing for hands-free operation. This project aims to provide an intuitive way to manage and play music from the command line, making it perfect for developers and music enthusiasts alike.
 
 ## Features
